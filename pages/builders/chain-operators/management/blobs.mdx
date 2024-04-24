@@ -87,6 +87,21 @@ This guide walks you through how to switch to using blobs for your chain after E
     </Tabs.Tab>
   </Tabs>
 
+~~~shell
+Traces:
+  [15491] 0x420000000000000000000000000000000000000F::baseFeeScalar()
+    ├─ [10508] 0xb528D11cC114E026F138fE568744c6D45ce6Da7A::baseFeeScalar() [delegatecall]
+    │   ├─ [7329] 0x4200000000000000000000000000000000000015::baseFeeScalar() [staticcall]
+    │   │   ├─ [2346] 0x07dbe8500fc591d1852B76feE44d5a05e13097Ff::baseFeeScalar() [delegatecall]
+    │   │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000558
+    │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000558
+    │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000558
+    └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000558
+
+
+Transaction successfully executed.
+Gas used: 36555
+~~~
   ### Update Your Batcher to Post Blobs
 
   Now that the fee config has been updated, you should immediately configure your batcher!
